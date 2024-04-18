@@ -290,6 +290,7 @@ public class Controller25 {
             }
         }
         model.addAttribute("list", list);
+        model.addAttribute("prevSearch", search);
         return "main25/sub8";
     }
 

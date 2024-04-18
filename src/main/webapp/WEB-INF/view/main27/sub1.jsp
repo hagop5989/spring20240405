@@ -2,11 +2,23 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
-    <title>Title</title>
     <style>
         table, tr, th, td {
             border: 1px solid black;
             border-collapse: collapse;
+        }
+
+        button {
+            margin: 3px;
+        }
+
+        .pageNumbers {
+            display: flex;
+            justify-content: left;
+        }
+
+        span {
+            padding: 5px
         }
 
         table {
@@ -15,23 +27,12 @@
     </style>
 </head>
 <body>
-<h3>고객 목록</h3>
-<%-- action 의 값이 없거나 생략되면 현재 요청 경로로 보냄--%>
+<h3>페이지 선택</h3>
 <form>
-    이름
-    <input value="${prevSearch}" type="text" placeholder="조회할 고객 이름을 입력하세요." name="search">
-    <input type="submit" value="조회">
-</form>
-<hr>
-<form>
-    국가
-    <select name="country" multiple>
-        <c:forEach items="${countryList}" var="country">
-            <option value="${country}">${country}</option>
-        </c:forEach>
-    </select>
+    <input type="text" name="page" placeholder="조회할 페이지 입력">
     <button>조회</button>
 </form>
+
 <hr>
 <table>
     <thead>
@@ -59,5 +60,12 @@
     </c:forEach>
     </tbody>
 </table>
+<div class="pageNumbers">
+    <c:forEach var="i" begin="1" end="${sizeNum}">
+        <form action="/main27/sub1">
+            <button type="submit" name="page" value="${i}">${i}</button>
+        </form>
+    </c:forEach>
+</div>
 </body>
 </html>

@@ -5,38 +5,39 @@
     <title>Title</title>
 </head>
 <style>
-    tr, td {
+    tr, th {
         border: 1px solid black;
         padding: 5px;
     }
 </style>
 <body>
 <form action="/main25/sub8">
+    <h3>직원 조회 목록</h3>
     이름
-    <input type="text" placeholder="조회할 고객 이름을 입력하세요." name="search">
+    <input type="text" value="${prevSearch}" placeholder="조회할 고객 이름을 입력하세요." name="search">
     <input type="submit" value="조회">
     <hr>
 
     <table>
         <thead>
         <tr>
-            <td>employeeID</td>
-            <td>lastName</td>
-            <td>firstName</td>
-            <td>birthDate</td>
-            <td>photo</td>
-            <td>notes</td>
+            <th>employeeID</th>
+            <th>lastName</th>
+            <th>firstName</th>
+            <th>birthDate</th>
+            <th>photo</th>
+            <th>notes</th>
         </tr>
         </thead>
         <c:forEach items="${list}" var="list">
             <tbody>
             <tr>
-                <td>${list.employeeID}</td>
-                <td>${list.lastName}</td>
-                <td>${list.firstName}</td>
-                <td>${list.birthDate}</td>
-                <td>${list.photo}</td>
-                <td>${list.notes}</td>
+                <th>${list.employeeID}</th>
+                <th>${list.lastName}</th>
+                <th>${list.firstName}</th>
+                <th>${list.birthDate}</th>
+                <th>${list.photo}</th>
+                <th>${list.notes}</th>
             </tr>
 
             </tbody>
