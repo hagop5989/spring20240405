@@ -8,6 +8,11 @@
             border-collapse: collapse;
         }
 
+        . active {
+            background-color: blue;
+            color: white;
+        }
+
         button {
             margin: 3px;
         }
@@ -23,6 +28,10 @@
 
         table {
             width: 100%;
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -61,11 +70,17 @@
     </tbody>
 </table>
 <div class="pageNumbers">
-    <c:forEach var="i" begin="1" end="${sizeNum}">
-        <form action="/main27/sub1">
+    <form action="/main27/sub1">
+        <button type="submit" name="page" value="1">first</button>
+        <button type="submit" name="page" value="${prvPg}"> <<</button>
+        <c:forEach var="i" begin="${firstPg}" end="${lastPg}">
             <button type="submit" name="page" value="${i}">${i}</button>
-        </form>
-    </c:forEach>
+        </c:forEach>
+        <button type="submit" name="page" value="${nxtPg}"> >></button>
+        <button type="submit" name="page" value="${sizeNum}">last</button>
+    </form>
+    <hr>
+
 </div>
 </body>
 </html>

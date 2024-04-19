@@ -7,7 +7,9 @@ public class MyBean258Employee {
     private int id;
     private String lastName;
     private String firstName;
-    private String notes;
     private String photo;
+    private String notes;
     private String birthDate;
+
+
 }
