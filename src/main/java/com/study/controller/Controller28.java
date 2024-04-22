@@ -22,7 +22,6 @@ public class Controller28 {
 
     @GetMapping("sub1")
     public String sub1() throws SQLException {
-
         return "main28/sub1";
     }
 
@@ -49,7 +48,6 @@ public class Controller28 {
                 rttr.addFlashAttribute("message", "새 고객이 등록 되었습니다!");
             }
         }
-
         return "redirect:/main28/sub1";
     }
 
@@ -78,6 +76,8 @@ public class Controller28 {
             int rowCount = pstmt.executeUpdate();
             if (rowCount == 1) {
                 rttr.addFlashAttribute("message", "등록이 잘 되었습니다!!");
+            } else {
+                rttr.addFlashAttribute("message", "등록이 실패하였습니다!!");
             }
         }
         return "redirect:/main28/sub2";
