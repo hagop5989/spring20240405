@@ -69,3 +69,5 @@ ORDER BY Price;
 UPDATE Products
 SET Price = Price * 3
 WHERE CategoryID = 2;
+
+
