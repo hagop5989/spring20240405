@@ -98,16 +98,16 @@ public interface Mapper04 {
     @Update("""
             UPDATE my_table10
             SET
-            title = #{title},
-            name = #{name},
-            age= #{age},
-            price= #{price},
-            published = #{published},
-            inserted= #{inserted}
+            title = #{data.title},
+            name = #{data.name},
+            age= #{data.age},
+            price= #{data.price},
+            published = #{data.published},
+            inserted= #{data.inserted}
             WHERE
-            name =#{name}
+            name =#{prevName}
             """)
-    int update0(MyBean333 data);
+    int update0(MyBean333 data, String prevName);
 
     @Delete("""
             DELETE FROM my_table10

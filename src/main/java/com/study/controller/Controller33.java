@@ -158,17 +158,19 @@ public class Controller33 {
     }
 
     @GetMapping("sub12/select")
-    public String selected12(String search, Model model) {
+    public String selected12(String search, Model model, RedirectAttributes rttr) {
         MyBean333 obj = mapper.select0(search);
-        System.out.println("search = " + search);
-        System.out.println("obj = " + obj);
         model.addAttribute("selected", obj);
-        return "/main33/sub12";
+        model.addAttribute("prevName", obj.getName());
+        rttr.addFlashAttribute("message", obj.getName() + "님 조회됨!");
+        rttr.addFlashAttribute("selected", obj);
+        return "redirect:/main33/sub12";
     }
 
     @PostMapping("sub12/update")
-    public String update12(MyBean333 data, RedirectAttributes rttr) {
-        mapper.update0(data);
+    public String update12(MyBean333 data, String prevName, RedirectAttributes rttr) {
+        int rowCount = mapper.update0(data, prevName);
+        rttr.addFlashAttribute("message", rowCount + " 명 수정됨!");
         return "redirect:/main33/sub12";
     }
 
