@@ -82,4 +82,9 @@ interface TestMapper {
             WHERE EmployeeID = #{id}
             """)
     String select(Integer id);
+
+    @Select("""
+            SELECT ProductName FROM w3schools.Products WHERE ProductID = ${randomNum}
+            """)
+    String randomSelect(int randomNum);
 }
